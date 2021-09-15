@@ -52,11 +52,12 @@ namespace lab2
         // console input - output methods
         public void ReadBitString() {
             string temp = Console.ReadLine();
-            _vars = Array.ConvertAll(temp.Split(','), int.Parse);
+            _vars = Array.ConvertAll(temp.Split(' '), int.Parse);
         }
 
         public void WriteBitString() {
-            Console.WriteLine("[{0}]", string.Join(", ", _vars));
+            //Console.WriteLine(_vars);
+            Console.WriteLine("{0}", string.Join(" ", _vars));
         }
 
     }
@@ -66,8 +67,8 @@ namespace lab2
         static void Main(string[] args)
         {
             // testing constructors
-            BitString b_str = new BitString(2);
-            //b_str.ReadBitString();
+            BitString b_str = new BitString();
+            b_str.ReadBitString();
             b_str.WriteBitString();
         }
     }
