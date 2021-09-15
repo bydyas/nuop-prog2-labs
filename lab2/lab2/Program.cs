@@ -21,14 +21,14 @@ namespace lab2
 
         public int Length
         {
-            get { return this._length; }
-            set { this._length = value; }
+            get { return _length; }
+            set { _length = value; }
         }
 
         public int[] Vars
         {
-            get { return this._vars; }
-            set { this._vars = value; }
+            get { return _vars; }
+            set { _vars = value; }
         }
 
         // generating a random array of bit variables (0,1) when constructor has only one argument;
@@ -46,12 +46,17 @@ namespace lab2
             return bit_store;
         }
 
-        public void ReadBitString(string bit_str) {
-            this.Vars = Array.ConvertAll(bit_str.Split(','), int.Parse);
+        // overloading methods
+
+
+        // console input - output methods
+        public void ReadBitString() {
+            string temp = Console.ReadLine();
+            _vars = Array.ConvertAll(temp.Split(','), int.Parse);
         }
 
-        public int[] WriteBitString() {
-            return this.Vars;
+        public void WriteBitString() {
+            Console.WriteLine("[{0}]", string.Join(", ", _vars));
         }
 
     }
@@ -61,9 +66,8 @@ namespace lab2
         static void Main(string[] args)
         {
             // testing constructors
-            BitString b_str = new BitString();
-            // Console.WriteLine("[{0}]", string.Join(", ", b_str.Vars));
-            b_str.ReadBitString('0010');
+            BitString b_str = new BitString(2);
+            //b_str.ReadBitString();
             b_str.WriteBitString();
         }
     }
