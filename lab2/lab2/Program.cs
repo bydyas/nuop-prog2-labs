@@ -7,7 +7,7 @@ namespace lab2
         private int _length;
         private int[] _vars;
 
-        public BitString() {}
+        public BitString() {_length = 0;_vars = new int[] {};}
         public BitString(int bit_length)
         {
             Length = bit_length;
@@ -68,7 +68,7 @@ namespace lab2
         {
             // testing constructors
             BitString b_str = new BitString();
-            b_str.ReadBitString();
+            //b_str.ReadBitString();
             b_str.WriteBitString();
         }
     }
