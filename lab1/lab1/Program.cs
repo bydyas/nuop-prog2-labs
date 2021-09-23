@@ -110,7 +110,6 @@ namespace lab1
 
         public double Argument()
         {
-            // complex argument
             return Math.Atan2(this.imaginary_part, this.real_part);
         }
     }
@@ -129,7 +128,7 @@ namespace lab1
             Complex res = new Complex();
             res = num_1 + num_2;
             res.Write();
-
+            
             Console.Read();
         }
     }
