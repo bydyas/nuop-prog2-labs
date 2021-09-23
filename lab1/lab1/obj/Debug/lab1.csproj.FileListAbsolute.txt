@@ -1,0 +1,7 @@
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\bin\Debug\lab1.exe.config
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\bin\Debug\lab1.exe
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\bin\Debug\lab1.pdb
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\obj\Debug\lab1.csprojAssemblyReference.cache
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\obj\Debug\lab1.exe
+C:\KNOWLEDGE\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab1\lab1\obj\Debug\lab1.pdb
