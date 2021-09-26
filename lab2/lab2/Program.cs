@@ -12,7 +12,7 @@ namespace lab2
         // property
         public int Length
         {
-            get { return this.arr.Length; }
+            get => this.arr.Length;
         }
 
         // constructors
@@ -109,6 +109,26 @@ namespace lab2
             }
 
             return res;
+        }
+
+        // indexer
+        public int this[int index]
+        {
+            get
+            {
+                if (index < 0 || index >= this.arr.Length)
+                    throw new IndexOutOfRangeException("Index out of range");
+
+                return this.arr[index];
+            }
+
+            set
+            {
+                if (index < 0 || index >= this.arr.Length)
+                    throw new IndexOutOfRangeException("Index out of range");
+
+                this.arr[index] = value;
+            }
         }
     }
 
