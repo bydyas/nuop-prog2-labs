@@ -9,6 +9,12 @@ namespace lab2
         private int top_border;
         private int[] arr;
 
+        // property
+        public int Length
+        {
+            get { return this.arr.Length; }
+        }
+
         // constructors
         public RangeArray()
         {
@@ -21,6 +27,7 @@ namespace lab2
         {
             this.bottom_border = bottom_br;
             this.top_border = top_br;
+            this.arr = new int[2] { this.bottom_border, this.top_border };
         }
 
         // methods
@@ -53,17 +60,80 @@ namespace lab2
 
             return counter;
         }
+
+        public void Add(int num)
+        {
+            Array.Resize(ref this.arr, this.arr.Length + 1);
+            this.arr[this.arr.Length - 1] = num;
+        }
+
+        public void Remove(int del_num)
+        {
+            this.arr = this.arr.Where(num => num != del_num).ToArray();
+        }
+
+        public int Includes(int num)
+        {
+            int counter = 0;
+
+            foreach (int val in this.arr)
+            {
+                if (val == num)
+                    counter++;
+            }
+
+            return counter;
+        }
+
+        // overloading operators
+        public static RangeArray operator +(RangeArray x, RangeArray y)
+        {
+            RangeArray res = new RangeArray();
+            
+            for (int i = 0; i < x.arr.Length; i++)
+            {
+                Array.Resize(ref res.arr, res.arr.Length + 1);
+                res.arr[i] = x.arr[i] + y.arr[i];
+            }
+
+            return res;
+        }
+
+        public static RangeArray operator ++(RangeArray x)
+        {
+            RangeArray res = new RangeArray();
+
+            for (int i = 0; i < x.arr.Length; i++)
+            {
+                x.arr[i]++;
+            }
+
+            return res;
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            RangeArray test = new RangeArray();
-            test.Read();
-            test.Write();
-            Console.WriteLine("Max number is {0}", test.MaxRangeArray());
-            Console.WriteLine("Amount of positive nums is {0}", test.Positive());
+            RangeArray x = new RangeArray();
+            x.Read();
+            x.Write();
+
+            // RangeArray y = new RangeArray();
+            // y.Read();
+            // RangeArray res = new RangeArray();
+            // res = x + y;
+            // res.Write();
+
+            // x++.Write();
+            // x.Add(5);
+            // x.Remove(4);
+
+            // Console.WriteLine(x.Length);
+            // Console.WriteLine("Max number is {0}", x.MaxRangeArray());
+            // Console.WriteLine("Amount of positive nums is {0}", x.Positive());
+            // Console.WriteLine("The similarity is {0}", x.Includes(2));
 
             Console.Read();
         }
