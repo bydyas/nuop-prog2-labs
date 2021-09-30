@@ -27,7 +27,7 @@ namespace lab2
         {
             this.bottom_border = bottom_br;
             this.top_border = top_br;
-            this.arr = new int[2] { this.bottom_border, this.top_border };
+            this.arr = Enumerable.Range(this.bottom_border, this.top_border - 1).ToArray();
         }
 
         // methods
@@ -114,21 +114,8 @@ namespace lab2
         // indexer
         public int this[int index]
         {
-            get
-            {
-                if (index < 0 || index >= this.arr.Length)
-                    throw new IndexOutOfRangeException("Index out of range");
+            get => index >= 0 ? this.arr[index] : this.arr[this.bottom_border - index];
 
-                return this.arr[index];
-            }
-
-            set
-            {
-                if (index < 0 || index >= this.arr.Length)
-                    throw new IndexOutOfRangeException("Index out of range");
-
-                this.arr[index] = value;
-            }
         }
     }
 
@@ -136,15 +123,16 @@ namespace lab2
     {
         static void Main(string[] args)
         {
-            RangeArray x = new RangeArray();
-            x.Read();
+            RangeArray x = new RangeArray(2,5);
+            //x.Read();
             x.Write();
+            Console.WriteLine(x[-1]);
 
-            // RangeArray y = new RangeArray();
-            // y.Read();
-            // RangeArray res = new RangeArray();
-            // res = x + y;
-            // res.Write();
+            //RangeArray y = new RangeArray();
+            //y.Read();
+            //RangeArray res = new RangeArray();
+            //res = x + y;
+            //res.Write();
 
             // x++.Write();
             // x.Add(5);
