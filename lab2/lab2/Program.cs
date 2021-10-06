@@ -7,12 +7,15 @@ namespace lab2
     {
         private int bottom_border;
         private int top_border;
+        private int length;
         private int[] arr;
+        private int[] indexes;
+        private int[] def_indexes;
 
         // property
-        public int Length
+        public int Length 
         {
-            get => this.arr.Length;
+            get => this.length;
         }
 
         // constructors
@@ -20,25 +23,31 @@ namespace lab2
         {
             this.bottom_border = 0;
             this.top_border = 0;
+            this.length = 0;
             this.arr = new int[0]{};
+            this.indexes = new int[0]{};
         }
 
         public RangeArray(int bottom_br, int top_br)
         {
             this.bottom_border = bottom_br;
             this.top_border = top_br;
-            this.arr = Enumerable.Range(this.bottom_border, this.top_border - 1).ToArray();
+            this.length = (this.top_border - this.bottom_border) + 1;
+            this.arr = new int[this.length];
+            this.indexes = this.def_indexes = new int[this.length];
+            this.indexes = Enumerable.Range(this.bottom_border, this.length).ToArray();
+            this.def_indexes = Enumerable.Range(0, this.length).ToArray();
         }
 
         // methods
-        public void Read()
+        public void Write()
         {
-            Console.WriteLine("Enter the values of array splitting by comma (,): ");
+            Console.WriteLine($"Enter the values of array (length = {this.length}) splitting by comma (,): ");
             string temp = Console.ReadLine();
             this.arr = Array.ConvertAll(temp.Split(','), int.Parse);
         }
 
-        public void Write()
+        public void Read()
         {
             Console.WriteLine("Current array: [{0}]", string.Join(", ", this.arr));
         }
@@ -89,12 +98,13 @@ namespace lab2
         public static RangeArray operator +(RangeArray x, RangeArray y)
         {
             RangeArray res = new RangeArray();
-            
+
             for (int i = 0; i < x.arr.Length; i++)
             {
                 Array.Resize(ref res.arr, res.arr.Length + 1);
                 res.arr[i] = x.arr[i] + y.arr[i];
             }
+
 
             return res;
         }
@@ -111,11 +121,26 @@ namespace lab2
             return res;
         }
 
-        // indexer
+        // Indexer
         public int this[int index]
         {
-            get => index >= 0 ? this.arr[index] : this.arr[this.bottom_border - index];
+            get => index >= 0 ? this.arr[index] : FindIndex(index);
+        }
 
+        private int FindIndex(int index)
+        {
+
+            for (int j = 0; j < this.indexes.Length; j++)
+            {
+                if (index == this.indexes[j])
+                {
+                    return this.arr[def_indexes[j]];
+                }
+            }
+
+            throw new ArgumentOutOfRangeException(
+                nameof(index),
+                $"Index {index} is not supported.");
         }
     }
 
@@ -123,25 +148,11 @@ namespace lab2
     {
         static void Main(string[] args)
         {
-            RangeArray x = new RangeArray(2,5);
-            //x.Read();
-            x.Write();
-            Console.WriteLine(x[-1]);
-
-            //RangeArray y = new RangeArray();
-            //y.Read();
-            //RangeArray res = new RangeArray();
-            //res = x + y;
-            //res.Write();
-
-            // x++.Write();
-            // x.Add(5);
-            // x.Remove(4);
-
-            // Console.WriteLine(x.Length);
-            // Console.WriteLine("Max number is {0}", x.MaxRangeArray());
-            // Console.WriteLine("Amount of positive nums is {0}", x.Positive());
-            // Console.WriteLine("The similarity is {0}", x.Includes(2));
+            RangeArray arr = new RangeArray(-1, 2);
+            arr.Write();
+            arr.Read();
+            Console.WriteLine(arr[-2]);
+            Console.WriteLine(arr[2]);
 
             Console.Read();
         }
