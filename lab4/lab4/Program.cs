@@ -166,6 +166,31 @@ namespace lab4
 
     }
 
+    delegate void DellFilmsBase();
+    class DellSearch
+    {
+        private FilmBase storage_all;
+        private FilmBase storage_search;
+        private DellFilmsBase dfb;
+
+        public DellSearch() { }
+
+        public static void DisplayOptions()
+        {
+            Console.WriteLine($"FilmBase Options:\n" +
+                              $"---------------------\n" +
+                              $"- FilmBase.add()\n" +
+                              $"- FilmBase.addByDefault()\n" +
+                              $"- FilmBase.uploadDB()\n" +
+                              $"- FilmBase.byTitle()\n" +
+                              $"- FilmBase.byGenre()\n" +
+                              $"- FilmBase.byDirector()\n" +
+                              $"- FilmBase.byYear()\n" +
+                              $"- FilmBase.byRating()\n" +
+                              $"---------------------\n");
+        }
+    }
+
 
     class Program
      {
@@ -173,7 +198,12 @@ namespace lab4
         {
             FilmBase b = new FilmBase();
             b.uploadDB();
-            b.byGenre();
+
+            //b.byGenre();
+            //b.byTitle();
+            //b.byDirector();
+            //b.byYear();
+            //b.byRating();
 
             Console.ReadKey();
         }
