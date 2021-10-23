@@ -12,3 +12,4 @@ C:\Education\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab4\lab4\obj\Debug\lab
 C:\Education\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab4\lab4\obj\Debug\lab4.csproj.CoreCompileInputs.cache
 C:\Education\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab4\lab4\obj\Debug\lab4.exe
 C:\Education\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab4\lab4\obj\Debug\lab4.pdb
+C:\Education\onpu\2 курс\ПРОГА2\nuop-prog2-labs\lab4\lab4\obj\Debug\lab4.csproj.SuggestedBindingRedirects.cache
